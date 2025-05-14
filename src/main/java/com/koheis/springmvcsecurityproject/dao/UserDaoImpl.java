@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UserDaoImpl implements UserDao{
 
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     public UserDaoImpl(EntityManager entityManager){
         this.entityManager = entityManager;
@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserDao{
 
         theQuery.setParameter("uName", theUserName);
 
-        User theUser = null;
+        User theUser;
         try {
             theUser = theQuery.getSingleResult();
         } catch (Exception e) {

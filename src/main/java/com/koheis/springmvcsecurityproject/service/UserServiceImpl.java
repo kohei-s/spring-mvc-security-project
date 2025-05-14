@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl implements UserService{
 
-    private UserDao userDao;
-    private RoleDao roleDao;
+    private final UserDao userDao;
+    private final RoleDao roleDao;
 
     @Autowired
     public UserServiceImpl(UserDao userDao, RoleDao roleDao){

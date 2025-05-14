@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class RoleDaoImpl implements RoleDao{
 
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     public RoleDaoImpl(EntityManager theEntityManager) {
         entityManager = theEntityManager;
@@ -21,7 +21,7 @@ public class RoleDaoImpl implements RoleDao{
         TypedQuery<Role> theQuery = entityManager.createQuery("from Role where name=:roleName", Role.class);
         theQuery.setParameter("roleName", theRoleName);
 
-        Role theRole = null;
+        Role theRole;
 
         try {
             theRole = theQuery.getSingleResult();
